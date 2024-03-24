@@ -1,0 +1,9 @@
+.parent > p{
+    color: red;
+}
+.container > h1{
+    background-color: blue;
+}
+.wrapper > ul{
+    color: green;
+}

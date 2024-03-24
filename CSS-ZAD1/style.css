@@ -1,0 +1,26 @@
+h1 + p {
+    color: red;
+}
+
+div > ul {
+    background-color: blue;
+}
+a {
+    text-decoration: none;
+}
+a > span:nth-child(1) {
+    text-decoration: underline;
+    margin-right: 10px;
+}
+a > span:nth-child(2) {
+    color: green;
+}
+.container > h2 {
+    font-style: italic;
+}
+.title > ul {
+    background-color: yellow;
+}
+.title > ul > li::marker {
+    font-weight: normal;
+}

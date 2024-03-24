@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+}
+.container{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+}
+.container > h1 {
+    color: white;
+}
+
+.container > .cubeOne {
+    border: 2px solid red;
+    background-color: red;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+}
+.container > .cubeTwo{
+    border: 2px solid blue;
+    background-color: blue;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+}
