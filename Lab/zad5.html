@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <img class="img" width="50px" src="https://e7.pngegg.com/pngimages/640/353/png-clipart-responsive-web-design-cascading-style-sheets-css3-computer-icons-world-wide-web-blue-angle-thumbnail.png">
+    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <div class="el">
+        <p>Element 1</p>
+        <p>Element 3</p>
+        <p>Element 2</p>
+    </div>
+</div>
+
+<style>
+    .img{
+        float: left;
+        margin-right: 10px
+    }
+    .wrapper{
+        text-align: center;
+    }
+    .el{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+    }
+    .el > *{
+        margin: 0 10px;
+    }
+    .text {
+        overflow: hidden;
+    }
+</style>
