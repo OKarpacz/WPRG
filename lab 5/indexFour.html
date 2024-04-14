@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    .head {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: lightgray;
+        flex-direction: row;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+
+
+    .head > div {
+        padding: 10px 10px 10px 10px;
+        margin: 3px;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        min-height: 200px;
+    }
+
+    .cols {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px;
+        flex: 1 1 33%;
+    }
+
+    .rows {
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+        margin: 10px;
+        flex: 1 1 auto;
+    }
+    .rows-nopadding {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 auto;
+    }
+    .nested {
+        border: black 2px solid;
+        padding: 10px;
+    }
+
+</style>
+
+<body>
+<div class="head">
+    <div>Strona główna</div>
+    <div>O nas</div>
+    <div>Kontakt</div>
+</div>
+
+<div class="main">
+
+    <div class="cols">
+        <h2>Witaj na naszej skomplikowanej stronie!</h2>
+    </div>
+
+    <div class="cols">
+        <div class="rows-nopadding">
+            <div class="rows">
+                <div  class = "nested" >
+                    <h3>Funkcja 1</h3>
+                    <a>opis funkcji 1..</a>
+                </div>
+            </div>
+            <div class="rows">
+                <div class = "nested">
+                    <h3>Funkcja 2</h3>
+                    <a>opis funkcji 2..</a>
+                </div>
+            </div>
+        </div>
+        <div class="rows">
+            <div class = "nested">
+                <h3>Funkcja 3</h3>
+                <a>opis funkcji 3..</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="cols" style="border: black 2px solid">
+        <h3>Dodatkowe informacje ... </h3>
+    </div>
+</div>
+<div class="head">
+    <div> Skomplikowana strona z flexboxem. Wszelskie prawa zastrzeżone.</div>
+</div>
+</body>
+</html>
