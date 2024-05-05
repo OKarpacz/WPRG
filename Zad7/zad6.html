@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    body {
+        display: flex;
+    }
+    div {
+        padding: 30px;
+        background-color: grey;
+        border: medium solid blue;
+    }
+
+</style>
+<head>
+    <meta charset="utf-8" />
+    <title>kalkulator</title>
+</head>
+<body>
+<div>
+    <form action="calc.php" method="POST">
+        <h3>Kalkulator prosty</h3>
+        <table>
+            <tr>
+                <select name="operationType">
+                    <option value="addition">Dodawanie</option>
+                    <option value="subtraction">Odejmowanie</option>
+                    <option value="multiplication">Mnożenie</option>
+                    <option value="division">Dzielenie</option>
+                </select>
+            </tr>
+            <tr>
+                <td>Pierwsza liczba:</td>
+                <td><input name="liczba1"></td>
+            </tr>
+            <tr>
+                <td>Druga liczba:</td>
+                <td><input name="liczba2"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Oblicz"></td>
+            </tr>
+        </table>
+    </form>
+
+    <form action="calc.php" method="POST">
+        <h3>Kalkulator zaawansowany</h3>
+        <table>
+            <tr>
+                <td>Podaj wartość: </td>
+                <td><input name="liczba1"></td>
+            </tr>
+
+            <tr>
+                <select name="operationType">
+                    <option value="sin">Sinus</option>
+                    <option value="cos">Cosinus</option>
+                    <option value="tg">Tangens</option>
+                    <option value="binToDec">Binarne na dziesiętne</option>
+                    <option value="decToBin">Dziesiętne na binarne</option>
+                    <option value="decToHex">Dziesiętne na szesnastkowe</option>
+                    <option value="hexToDec">Szesnastkowe na dziesiętne</option>
+                </select>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Oblicz"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
