@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsługa katalogów</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <form action="main.php" method="POST">
+        <label for="path">Ścieżka:</label>
+        <input type="text" id="path" name="path" required>
+
+        <label for="directory">Nazwa katalogu:</label>
+        <input type="text" id="directory" name="directory" required>
+
+        <label for="operation">Operacja:</label>
+        <select id="operation" name="operation">
+            <option value="read">Odczyt</option>
+            <option value="create">Stworzenie</option>
+            <option value="delete">Usunięcie</option>
+        </select>
+
+        <input type="submit" value="Wykonaj">
+    </form>
+
+    <div class="result"></div>
+</div>
+</body>
+</html>
