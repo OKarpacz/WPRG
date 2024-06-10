@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="main.php" method="POST">
+    <form action="handle_directory.php" method="POST">
         <label for="path">Ścieżka:</label>
         <input type="text" id="path" name="path" required>
 
@@ -25,7 +25,13 @@
         <input type="submit" value="Wykonaj">
     </form>
 
-    <div class="result"></div>
+    <div class="result">
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["path"])) {
+                include 'handle_directory.php';
+            }
+            ?>
+    </div>
 </div>
 </body>
 </html>

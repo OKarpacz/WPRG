@@ -4,15 +4,15 @@ if (isset($_GET["submit"])) {
     $birthDateTime = new DateTime($birthDate);
     $currentDate = new DateTime();
 
-    $dayOfTheWeek = date("N", strtotime($birthDate));
+    $dayOfTheWeek = $birthDateTime->format("N");
     $userAge = $currentDate->diff($birthDateTime)->y;
 
     $currentYear = $currentDate->format('Y');
     $birthMonthAndDay = $birthDateTime->format('m-d');
-    $nextBirthday = new DateTime($currentYear . '-' . $birthMonthAndDay);
+    $nextBirthday = DateTime::createFromFormat('Y-m-d', $currentYear . '-' . $birthMonthAndDay);
 
-    if ($nextBirthday > $currentDate) {
-        $nextBirthday = $nextBirthday->modify('+1 year');
+    if ($nextBirthday < $currentDate) {
+        $nextBirthday->modify('+1 year');
     }
 
     $numberOfDaysToNextBirthday = $currentDate->diff($nextBirthday)->days;
