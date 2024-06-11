@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<a href="logout.php">Wyloguj</a>';
     } else {
         echo "<p>Błędny login lub hasło. Spróbuj ponownie.</p>";
-        echo '<a href="index.php">Powrót do formularza logowania</a>';
+        echo '<a href="autoClass.php">Powrót do formularza logowania</a>';
     }
 }
 ?>
