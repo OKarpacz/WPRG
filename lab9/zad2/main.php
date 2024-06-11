@@ -1,56 +1,50 @@
 <?php
-function handleDirectory($path, $directory, $operation = 'read') {
-    $fullPath = $path . $directory;
+function fileManager($path, $name, $operationType = "read")
+{
+$pathName = $path . $name;
+switch ($operationType) {
+case "read":
+if (is_dir($pathName)) {
+echo "Lista plików w katalogu $pathName : <br/>";
+foreach (scandir($pathName) as $file) {
+if ($file != '.' && $file != '..')
+echo "$file<br/>";
+}
+} else {
+echo "Nie mogę otworzyć katalogu $pathName";
+}
+break;
 
-    if ($operation == 'read') {
-        if (is_dir($fullPath)) {
-            $elements = scandir($fullPath);
-            $elements = array_diff($elements, array('.', '..'));
-            if (!empty($elements)) {
-                echo "Zawartość katalogu $fullPath:<br>";
-                foreach ($elements as $element) {
-                    echo $element . "<br>";
-                }
-            } else {
-                echo "Katalog $fullPath jest pusty.";
-            }
-        } else {
-            echo "Katalog $fullPath nie istnieje.";
-        }
-    } elseif ($operation == 'create') {
-        if (!is_dir($fullPath)) {
-            if (mkdir($fullPath, 0777, true)) {
-                echo "Katalog $fullPath został pomyślnie stworzony.";
-            } else {
-                echo "Nie udało się stworzyć katalogu $fullPath.";
-            }
-        } else {
-            echo "Katalog $fullPath już istnieje.";
-        }
-    } elseif ($operation == 'delete') {
-        if (is_dir($fullPath)) {
-            $elements = scandir($fullPath);
-            $elements = array_diff($elements, array('.', '..'));
-            if (empty($elements)) {
-                if (rmdir($fullPath)) {
-                    echo "Katalog $fullPath został pomyślnie usunięty.";
-                } else {
-                    echo "Nie udało się usunąć katalogu $fullPath.";
-                }
-            } else {
-                echo "Katalog $fullPath nie jest pusty i nie może być usunięty.";
-            }
-        } else {
-            echo "Katalog $fullPath nie istnieje.";
-        }
-    }
+case "delete":
+if (file_exists($pathName) && is_dir($pathName)) {
+$files = scandir($pathName);
+$fileCounter = 0;
+foreach ($files as $file) {
+if ($file != '.' && $file != '..') {
+$fileCounter++;
+}
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $path = rtrim($_POST["path"], '/') . '/';
-    $directory = $_POST["directory"];
-    $operation = $_POST["operation"] ?? 'read';
+if ($fileCounter < 1) {
+rmdir($pathName);
+echo "Pomyślnie usunięto katalog";
+} else {
+echo "Katalog nie jest pusty.";
+}
+} else {
+echo "Wybrany katalog nie istnieje lub nie jest katalogiem";
+}
+break;
 
-    handleDirectory($path, $directory, $operation);
+case "create":
+if(!is_dir($pathName) && mkdir($pathName))
+echo "Pomyślnie utworzono katalog";
+elseif (is_dir($pathName))
+echo "Katalog już istnieje";
+else
+echo "Nie udało się utworzyć katalogu";
+break;
+
+}
 }
 ?>

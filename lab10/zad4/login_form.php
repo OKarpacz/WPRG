@@ -14,8 +14,9 @@ function isPasswordCorrect($email, $password){
                 return true;
             }
         }
-    }else{
-        return "Nie powstał plik user.txt";
+        return false; // Dodajemy zwracanie false w przypadku braku pliku users.txt
+    } else {
+        return false; // Dodajemy zwracanie false w przypadku braku pliku users.txt
     }
 }
 
